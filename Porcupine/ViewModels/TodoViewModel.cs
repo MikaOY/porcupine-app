@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Porcupine
 {
-	public class TodoViewModel
+	public class TodoViewModel : ViewModelBase
 	{
 		public TodoViewModel()
 		{
