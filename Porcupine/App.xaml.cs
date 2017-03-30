@@ -4,6 +4,17 @@ namespace Porcupine
 {
 	public partial class App : Application
 	{
+		public class Category
+		{
+			public string Name;
+			public Color Tint;
+		}
+
+		public enum PriorityLevel
+		{
+			Low, Medium, High, JustDoIt
+		};
+
 		public App()
 		{
 			InitializeComponent();

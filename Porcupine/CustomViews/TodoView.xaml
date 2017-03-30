@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Porcupine.TodoView">
+	<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="20,20,20,20">
+			<StackLayout x:Name="todoStack" Orientation="Horizontal">
+				<BoxView x:Name="checkbox" WidthRequest="20" HeightRequest="20" 
+							HorizontalOptions="Start" VerticalOptions="Center"
+							BackgroundColor="Silver"/>
+				<Label x:Name="todoTitle" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+			</StackLayout>
+			<StackLayout x:Name="metadataStack" VerticalOptions="Start" HorizontalOptions="FillAndExpand" 
+							Padding="0,5,0,0" BackgroundColor="Aqua" IsVisible="false">
+				<StackLayout.Resources>
+					<ResourceDictionary>
+						<!--TODO: Add horizontal stack style-->
+					</ResourceDictionary>
+				</StackLayout.Resources>
+				<!--TODO: Add horizontal stacks-->
+			</StackLayout>
+		</StackLayout>
+</ContentView>
