@@ -3,5 +3,8 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="Porcupine.TodoPage"
 	Title="Todos">
-		<Label Text="Hello There"/>
+	<AbsoluteLayout>
+		<Button x:Name="toggleButton" Text="Toggle">
+		</Button>
+	</AbsoluteLayout>
 </ContentPage>
