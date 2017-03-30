@@ -2,7 +2,7 @@
 
 namespace Porcupine
 {
-	public partial class PorcupinePage : ContentPage
+	public partial class PorcupinePage : TabbedPage
 	{
 		public PorcupinePage()
 		{
