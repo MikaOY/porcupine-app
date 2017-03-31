@@ -6,9 +6,9 @@ namespace Porcupine
 	{
 		public string Title;
 		public bool IsDone; 
-		public string Category;
+		public App.Category Category;
 		public DateTime Deadline;
-		public App.PriorityLevel Priority;
+		public App.Priority Priority;
 
 		public Todo()
 		{

@@ -10,13 +10,14 @@
 				<Label x:Name="todoTitle" HorizontalOptions="StartAndExpand" VerticalOptions="Center"
 							FontSize="Large"/>
 			</StackLayout>
-			<StackLayout x:Name="metadataStack" VerticalOptions="Start" HorizontalOptions="FillAndExpand" 
-							Padding="0,5,0,0" BackgroundColor="Aqua" IsVisible="false">
+			<StackLayout x:Name="metadataStack" Orientation="Vertical"
+							VerticalOptions="Start" HorizontalOptions="FillAndExpand" 
+							Padding="0,5,0,0" BackgroundColor="Aqua">
 				<StackLayout.Resources>
 					<ResourceDictionary>
 						<Style TargetType="StackLayout">
 							<Setter Property="Orientation" Value="Horizontal" />
-							<Setter Property="HorizontalOptions" Value="Start" />
+							<Setter Property="HorizontalOptions" Value="FillAndExpand" />
 							<Setter Property="VerticalOptions" Value="Center" />
 						</Style>
 					</ResourceDictionary>
@@ -24,11 +25,11 @@
 			
 				<StackLayout>
 					<Label Text="Category"></Label>
-					<Label x:Name="categoryLabel"></Label>
+					<Label x:Name="categoryLabel" Text="Casual" HorizontalOptions="End"></Label>
 				</StackLayout>
 				<StackLayout>
 					<Label Text="Deadline"></Label>
-					<Label x:Name="deadlineLabel"></Label>
+					<Label x:Name="deadlineLabel" Text="14th April" HorizontalOptions="End"></Label>
 				</StackLayout>
 			</StackLayout>
 		</StackLayout>

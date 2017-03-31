@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Xamarin.Forms;
 
 namespace Porcupine
@@ -42,6 +43,57 @@ namespace Porcupine
 			get { return (bool)GetValue(IsDoneProperty); }
 		}
 
+		public static readonly BindableProperty CategoryProperty =
+			BindableProperty.Create(
+				"Category",
+				typeof(App.Category),
+				typeof(TodoView),
+				null,
+				propertyChanged: (bindable, oldValue, newValue) =>
+				{
+					((TodoView)bindable).deadlineLabel.Text = (App.Category)newValue.Name;
+					// TODO: display color of category
+				});
+
+		public App.Category Category
+		{
+			set { SetValue(CategoryProperty, value); }
+			get { return (App.Category)GetValue(CategoryProperty); }
+		}
+
+		public static readonly BindableProperty DeadlineProperty =
+			BindableProperty.Create(
+				"Deadline",
+				typeof(DateTime),
+				typeof(TodoView),
+				null,
+				propertyChanged: (bindable, oldValue, newValue) =>
+				{
+			((TodoView)bindable).deadlineLabel.Text = (string)newValue;
+				});
+
+		public DateTime Deadline
+		{
+			set { SetValue(DeadlineProperty, value); }
+			get { return (DateTime)GetValue(DeadlineProperty); }
+		}
+
+		public static readonly BindableProperty PriorityProperty =
+			BindableProperty.Create(
+				"Priority",
+				typeof(App.Priority),
+				typeof(TodoView),
+				null,
+				propertyChanged: (bindable, oldValue, newValue) =>
+				{
+					// TODO: display priority level
+				});
+
+		public App.Priority Priority
+		{
+			set { SetValue(PriorityProperty, value); }
+			get { return (App.Priority)GetValue(PriorityProperty); }
+		}
 
 		public TodoView()
 		{
@@ -49,22 +101,38 @@ namespace Porcupine
 
 			// To show metadata
 
-			metadataStack.IsVisible = true;
-			double fullHeight = metadataStack.Height;
+			metadataStack.Scale = 0.1;
+			metadataStack.TranslateTo(metadataStack.X, (metadataStack.Y + metadataStack.Height), 10, Easing.Linear);
 			metadataStack.IsVisible = false;
 
 			var tapGestureRecognizer = new TapGestureRecognizer();
-			tapGestureRecognizer.Tapped += (s, e) =>
+			tapGestureRecognizer.Tapped += async (s, e) =>
 			{
-				Device.StartTimer(TimeSpan.FromMilliseconds(15), () =>
+				// Scale stack to show / hide
+				if (isExpanded)
 				{
-					metadataStack.HeightRequest += !isExpanded ? 2 : -2;
-					double targetHeight = !isExpanded ? fullHeight : 0;
-					return metadataStack.Height == targetHeight;
-				});
+					await metadataStack.ScaleTo(0.1, 250, Easing.CubicOut);
+					metadataStack.IsVisible = false;
+				}
+				else
+				{
+					metadataStack.IsVisible = true;
+					await metadataStack.ScaleTo(1, 250, Easing.CubicOut);
+				}
+
+				// Invert expanded variable
 				isExpanded = !isExpanded;
 			};
 			todoStack.GestureRecognizers.Add(tapGestureRecognizer);
+
+			// To enable checking 
+
+			var tapGestureRecognizer2 = new TapGestureRecognizer();
+			tapGestureRecognizer2.Tapped += (s, e) =>
+			{
+				IsDone = !IsDone;
+			};
+			checkbox.GestureRecognizers.Add(tapGestureRecognizer2);
 		}
 	}
 }

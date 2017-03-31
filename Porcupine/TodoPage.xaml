@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="Porcupine.TodoPage"
+	xmlns:local="clr-namespace:Porcupine;assembly=Porcupine"
 	Title="Todos">
-	<AbsoluteLayout>
-		<Button x:Name="toggleButton" Text="Toggle">
-		</Button>
-	</AbsoluteLayout>
+	<StackLayout>
+		<local:TodoView Title="Finish MVP"/>
+		<local:TodoView Title="Work out"/>	
+	</StackLayout>
 </ContentPage>
