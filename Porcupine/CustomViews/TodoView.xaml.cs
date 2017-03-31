@@ -46,6 +46,25 @@ namespace Porcupine
 		public TodoView()
 		{
 			InitializeComponent();
+
+			// To show metadata
+
+			metadataStack.IsVisible = true;
+			double fullHeight = metadataStack.Height;
+			metadataStack.IsVisible = false;
+
+			var tapGestureRecognizer = new TapGestureRecognizer();
+			tapGestureRecognizer.Tapped += (s, e) =>
+			{
+				Device.StartTimer(TimeSpan.FromMilliseconds(15), () =>
+				{
+					metadataStack.HeightRequest += !isExpanded ? 2 : -2;
+					double targetHeight = !isExpanded ? fullHeight : 0;
+					return metadataStack.Height == targetHeight;
+				});
+				isExpanded = !isExpanded;
+			};
+			todoStack.GestureRecognizers.Add(tapGestureRecognizer);
 		}
 	}
 }

@@ -7,16 +7,29 @@
 				<BoxView x:Name="checkbox" WidthRequest="20" HeightRequest="20" 
 							HorizontalOptions="Start" VerticalOptions="Center"
 							BackgroundColor="Silver"/>
-				<Label x:Name="todoTitle" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+				<Label x:Name="todoTitle" HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+							FontSize="Large"/>
 			</StackLayout>
 			<StackLayout x:Name="metadataStack" VerticalOptions="Start" HorizontalOptions="FillAndExpand" 
 							Padding="0,5,0,0" BackgroundColor="Aqua" IsVisible="false">
 				<StackLayout.Resources>
 					<ResourceDictionary>
-						<!--TODO: Add horizontal stack style-->
+						<Style TargetType="StackLayout">
+							<Setter Property="Orientation" Value="Horizontal" />
+							<Setter Property="HorizontalOptions" Value="Start" />
+							<Setter Property="VerticalOptions" Value="Center" />
+						</Style>
 					</ResourceDictionary>
 				</StackLayout.Resources>
-				<!--TODO: Add horizontal stacks-->
+			
+				<StackLayout>
+					<Label Text="Category"></Label>
+					<Label x:Name="categoryLabel"></Label>
+				</StackLayout>
+				<StackLayout>
+					<Label Text="Deadline"></Label>
+					<Label x:Name="deadlineLabel"></Label>
+				</StackLayout>
 			</StackLayout>
 		</StackLayout>
 </ContentView>
