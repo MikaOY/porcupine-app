@@ -3,8 +3,96 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="Porcupine.TodoPage"
 	Title="Todos">
-	<AbsoluteLayout>
-		<Button x:Name="toggleButton" Text="Toggle">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness"
+			iOS="0,20,0,0" />
+	</ContentPage.Padding>
+	<RelativeLayout BackgroundColor="#d8f4ff" x:Name="MainLayout">
+		<ScrollView x:Name="TodoScroll"
+			RelativeLayout.WidthConstraint=
+				"{ConstraintExpression Type=RelativeToParent,
+										Property=Width,
+										Factor=1}"
+			RelativeLayout.HeightConstraint=
+				"{ConstraintExpression Type=RelativeToParent,
+										Property=Height,
+										Factor=1}"
+			RelativeLayout.XConstraint=
+				"{ConstraintExpression Type=Constant,
+										Constant=0}"
+			RelativeLayout.YConstraint=
+				"{ConstraintExpression Type=Constant,
+										Constant=0}">
+			<ScrollView.GestureRecognizers>
+				<TapGestureRecognizer 
+					Tapped = "HideMenu"/>
+			</ScrollView.GestureRecognizers>
+			<StackLayout Padding="30,0,30,0">
+				<Label Text="&#10; &#10;
+				App Structure &#10; &#10; &#10;
+
+				Tabbed page
+
+				- Todo ContentPage&#10;&#10;&#10;&#10;&#10;&#10;&#10;
+	 			 - AbsoluteLayout
+	  			  - Contextual menu toggle => contextual menu slides over view&#10;&#10;&#10;
+	   			 - Scrollview&#10;
+	     			 - Stacklayout&#10;
+	      		  - listOf(custom todo views)&#10;
+				        &#10;
+
+				Todo Basics&#10;
+				- Class called Todo to store metadata and send to view&#10;
+				  - with properties and methods for category, date, sharing, priority, archiving, sharing, etc.&#10;
+				- Custom view to display todo&#10;&#10;&#10;&#10;&#10;&#10;&#10;
+				  - Custom renderer to work with view (gestures)"/>
+			</StackLayout>
+		</ScrollView>
+		
+		<Button x:Name="toggleButton" Text="Toggle" Clicked="RevealMenu"
+			WidthRequest="80"
+			HeightRequest="40"
+			RelativeLayout.XConstraint=
+				"{ConstraintExpression Type=RelativeToParent,
+										Property=Width,
+										Factor=0.01}"
+			RelativeLayout.YConstraint=
+				"{ConstraintExpression Type=RelativeToParent,
+										Property=Width,
+										Factor=0.01}">
 		</Button>
-	</AbsoluteLayout>
+		
+		<StackLayout x:Name="sideMenu"
+			RelativeLayout.HeightConstraint=
+				"{ConstraintExpression Type=RelativeToParent,
+										Property=Height,
+										Factor=1}"
+			RelativeLayout.WidthConstraint=
+				"{ConstraintExpression Type=Constant,
+										Constant=200}"
+			RelativeLayout.XConstraint=
+				"{ConstraintExpression Type=Constant,
+										Constant=-200}"
+			RelativeLayout.YConstraint=
+				"{ConstraintExpression Type=Constant,
+										Constant=0}"
+			BackgroundColor="#e8eeff"
+			Padding = "20">
+			<Label Text="Projects" FontSize="Large"/>
+			<Label Text="Porcupine"/>
+			<Label Text="Chores"/>
+			<Label Text="Ideas"/>
+			<Label Text="Money generation"/>
+			<Label Text="Misc"/>
+			<Button x:Name="addProject" Text="+" BackgroundColor="Purple">
+			</Button>
+			<StackLayout Orientation="Horizontal">
+				<Button Text="Date"></Button>
+				<Button Text="Priority"></Button>
+				<Button Text="Category"></Button>
+			</StackLayout>
+		</StackLayout>
+		
+
+	</RelativeLayout>
 </ContentPage>
