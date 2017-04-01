@@ -6,7 +6,7 @@
 	x:Class="Porcupine.PorcupinePage">
 	
 	<ContentPage Title="Infographic">
-		<Label Text="HEY"/>
+		<Label Text="HEY KYS"/>
 	</ContentPage>
 	<local:TodoPage/>
 	<ContentPage Title="Calendar">

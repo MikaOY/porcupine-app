@@ -10,7 +10,6 @@ namespace Porcupine
 		public TodoPage()
 		{
 			InitializeComponent();
-
 		}
 
 		bool triggered;

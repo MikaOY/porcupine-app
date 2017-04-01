@@ -80,19 +80,21 @@
 			Padding = "20">
 			<Label Text="Projects" FontSize="Large"/>
 			<Label Text="Porcupine"/>
-			<Label Text="Chores"/>
-			<Label Text="Ideas"/>
+			<Label Text="Money generation"/>
+			<Label Text="Misc"/>
 			<Label Text="Money generation"/>
 			<Label Text="Misc"/>
 			<Button x:Name="addProject" Text="+" BackgroundColor="Purple">
 			</Button>
+
 			<StackLayout Orientation="Horizontal">
 				<Button Text="Date"></Button>
 				<Button Text="Priority"></Button>
 				<Button Text="Category"></Button>
 			</StackLayout>
-		</StackLayout>
-		
+			<Button Text="Custom" BackgroundColor="Red"/>
 
+			
+		</StackLayout>
 	</RelativeLayout>
 </ContentPage>
