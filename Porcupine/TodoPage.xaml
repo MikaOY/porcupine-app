@@ -29,24 +29,7 @@
 					Tapped = "HideMenu"/>
 			</ScrollView.GestureRecognizers>
 			<StackLayout Padding="30,0,30,0">
-				<Label Text="&#10; &#10;
-				App Structure &#10; &#10; &#10;
-
-				Tabbed page
-
-				- Todo ContentPage&#10;&#10;&#10;&#10;&#10;&#10;&#10;
-	 			 - AbsoluteLayout
-	  			  - Contextual menu toggle => contextual menu slides over view&#10;&#10;&#10;
-	   			 - Scrollview&#10;
-	     			 - Stacklayout&#10;
-	      		  - listOf(custom todo views)&#10;
-				        &#10;
-
-				Todo Basics&#10;
-				- Class called Todo to store metadata and send to view&#10;
-				  - with properties and methods for category, date, sharing, priority, archiving, sharing, etc.&#10;
-				- Custom view to display todo&#10;&#10;&#10;&#10;&#10;&#10;&#10;
-				  - Custom renderer to work with view (gestures)"/>
+				<local:TodoView Title="Kiss Mika" />
 			</StackLayout>
 		</ScrollView>
 		
