@@ -8,9 +8,15 @@ namespace Porcupine
 		{
 			public string Name;
 			public Color Tint;
+
+			public Category(string name, Color tint)
+			{
+				Name = name;
+				Tint = tint;
+			}
 		}
 
-		public enum PriorityLevel
+		public enum Priority
 		{
 			Low, Medium, High, JustDoIt
 		};
