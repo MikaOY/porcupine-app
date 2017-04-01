@@ -48,10 +48,10 @@ namespace Porcupine
 				"Category",
 				typeof(App.Category),
 				typeof(TodoView),
-				null,
+				new App.Category("Personal", Color.Fuchsia),
 				propertyChanged: (bindable, oldValue, newValue) =>
 				{
-					((TodoView)bindable).deadlineLabel.Text = (App.Category)newValue.Name;
+			((TodoView)bindable).deadlineLabel.Text = (newValue as App.Category).Name;
 					// TODO: display color of category
 				});
 
@@ -66,7 +66,7 @@ namespace Porcupine
 				"Deadline",
 				typeof(DateTime),
 				typeof(TodoView),
-				null,
+				DateTime.Now,
 				propertyChanged: (bindable, oldValue, newValue) =>
 				{
 			((TodoView)bindable).deadlineLabel.Text = (string)newValue;
@@ -83,7 +83,7 @@ namespace Porcupine
 				"Priority",
 				typeof(App.Priority),
 				typeof(TodoView),
-				null,
+				App.Priority.Low,
 				propertyChanged: (bindable, oldValue, newValue) =>
 				{
 					// TODO: display priority level
