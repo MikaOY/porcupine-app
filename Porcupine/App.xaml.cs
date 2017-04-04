@@ -4,6 +4,9 @@ namespace Porcupine
 {
 	public partial class App : Application
 	{
+		Color transPurple = new Color(227, 221, 255, 0.5);
+		string testText = "Hi There";
+
 		public class Category
 		{
 			public string Name;
@@ -26,6 +29,9 @@ namespace Porcupine
 			InitializeComponent();
 
 			MainPage = new PorcupinePage();
+
+			Resources.Add("transPurple", transPurple);
+			Resources.Add("testText", testText);
 		}
 
 		protected override void OnStart()

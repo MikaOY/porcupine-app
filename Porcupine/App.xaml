@@ -2,5 +2,21 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Porcupine.App">
 	<Application.Resources>
 		<!-- Application resource dictionary -->
+			<ResourceDictionary>
+				<Style TargetType="Label">
+					<Setter Property="FontFamily" Value="Avenir-Light" />
+				</Style>
+				<Style TargetType="Label" x:Key="mediumWeight">
+					<Setter Property="FontFamily" Value="Avenir-Medium" />
+				</Style>
+				<Style TargetType="Button" x:Key="keyButton">
+					<Setter Property="FontFamily" Value="Avenir-Medium" />
+					<Setter Property="TextColor" Value="White" />
+				</Style>
+				<Style TargetType="Button" x:Key="filterButton">
+					<Setter Property="FontFamily" Value="Avenir-Medium" />
+					<Setter Property="BackgroundColor" Value="{DynamicResource transPurple}" />
+				</Style>
+			</ResourceDictionary>
 	</Application.Resources>
 </Application>
