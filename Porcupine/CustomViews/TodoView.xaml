@@ -8,8 +8,8 @@
 				<BoxView x:Name="checkbox" WidthRequest="20" HeightRequest="20" 
 							HorizontalOptions="Start" VerticalOptions="Center"
 							BackgroundColor="Silver"/>
-				<Label x:Name="todoTitle" HorizontalOptions="StartAndExpand" VerticalOptions="Center"
-							FontSize="Large"/>
+				<Label x:Name="titleLabel" HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+							FontSize="Large" />
 			</StackLayout>
 			<StackLayout x:Name="metadataStack" Orientation="Vertical"
 							VerticalOptions="Start" HorizontalOptions="FillAndExpand" 
@@ -28,6 +28,10 @@
 				<StackLayout>
 					<Label Text="Category" Style="{StaticResource mediumWeight}"></Label>
 					<Label x:Name="categoryLabel" Text="Casual" HorizontalOptions="End"></Label>
+				</StackLayout>
+				<StackLayout>
+					<Label Text="Priority" Style="{StaticResource mediumWeight}"></Label>
+					<Label x:Name="priorityLabel" Text="Casual" HorizontalOptions="End"></Label>
 				</StackLayout>
 				<StackLayout>
 					<Label Text="Deadline" Style="{StaticResource mediumWeight}"></Label>
