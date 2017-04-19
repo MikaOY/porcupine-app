@@ -2,7 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="Porcupine.TodoView">
-	<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="20,10,20,10">
+	<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="20,10,20,10" x:Name="todoLayout">
 		
 			<StackLayout x:Name="todoStack" Orientation="Horizontal">
 				<BoxView x:Name="checkbox" WidthRequest="20" HeightRequest="20" 
@@ -30,7 +30,7 @@
 					<Label x:Name="categoryLabel" Text="Casual" HorizontalOptions="End"></Label>
 				</StackLayout>
 				<StackLayout>
-					<Label Text="Priority"></Label>
+					<Label Text="Priority" Style="{StaticResource mediumWeight}"></Label>
 					<Label x:Name="priorityLabel" Text="Casual" HorizontalOptions="End"></Label>
 				</StackLayout>
 				<StackLayout>

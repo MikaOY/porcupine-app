@@ -27,10 +27,11 @@
 			<ScrollView.GestureRecognizers>
 				<TapGestureRecognizer Tapped = "HideMenu"/>
 			</ScrollView.GestureRecognizers>
-			<StackLayout Padding="30,40,30,0">
+			<StackLayout Padding="30,40,30,0" x:Name="TodoLayout">
 				<local:TodoView Title="Make psast2a" />
-				<local:TodoView Title="Make psadfaast2a" />
 				<local:TodoView Title="Make psaadsvvvst2a" />
+				<local:TodoView Title="buy eggs" />
+				<local:TodoView Title="mmmmdeslih" />
 			</StackLayout>
 		</ScrollView>
 		

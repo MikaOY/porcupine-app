@@ -133,34 +133,32 @@ namespace Porcupine
 			{
 				if (isExpanded)
 				{
-					// Set label to imitate
-					Label example = titleLabel;
-
 					Entry editable = new Entry();
-					editable.Text = example.Text;
-					editable.VerticalOptions = example.VerticalOptions;
+					editable.Text = titleLabel.Text;
+					editable.VerticalOptions = titleLabel.VerticalOptions;
 					editable.HorizontalOptions = LayoutOptions.FillAndExpand;
-					editable.HeightRequest = example.Height;
-					editable.WidthRequest = example.Width;
+					editable.HeightRequest = titleLabel.Height;
+					editable.WidthRequest = titleLabel.Width;
 
-					example.IsVisible = false;
-					StackLayout parent = example.Parent as StackLayout;
+					titleLabel.IsVisible = false;
+					StackLayout parent = titleLabel.Parent as StackLayout;
 
 					editable.Completed += (sender, args) =>
 					{
 						Title = editable.Text;
 						parent.Children.RemoveAt((parent.Children.Count - 1));
-						example.IsVisible = true;
+						titleLabel.IsVisible = true;
 					};
 					editable.Unfocused += (sender, args) =>
 					{
 						parent.Children.RemoveAt((parent.Children.Count - 1));
-						example.IsVisible = true;
+						titleLabel.IsVisible = true;
 					};
 
 					parent.Children.Add(editable);
-					editable.Focus();
+
 					editable.IsVisible = true;
+					editable.Focus();
 				}
 				else
 				{
@@ -173,40 +171,28 @@ namespace Porcupine
 			var tapRecogCategory = new TapGestureRecognizer();
 			tapRecogCategory.Tapped += (s, e) =>
 			{
-				// Set label to imitate
-				Label example = categoryLabel;
-
-				Entry editable = new Entry();
-				editable.Text = example.Text;
-				editable.VerticalOptions = example.VerticalOptions;
-				editable.HorizontalOptions = LayoutOptions.FillAndExpand;
-				editable.HeightRequest = example.Height;
-				editable.WidthRequest = example.Width;
-
-				example.IsVisible = false;
-
-				// TODO: Add color picker for category
-
-				StackLayout parent = example.Parent as StackLayout;
-
-				editable.Completed += (sender, args) =>
+				if (isExpanded)
 				{
-					Title = editable.Text;
-					parent.Children.RemoveAt((parent.Children.Count - 1));
-					example.IsVisible = true;
-				};
-				editable.Unfocused += (sender, args) =>
-				{
-					parent.Children.RemoveAt((parent.Children.Count - 1));
-					example.IsVisible = true;
-				};
+					Picker picker = new Picker();
+					picker.Title = "Category";
+					string[] array = { "Casual", "Ideas", "Bananas", "Grapes", "KYS", "Money" };
+					List<string> categories = new List<string>(array);
+					foreach (string cat in categories)
+					{
+						picker.Items.Add(cat);
+					}
+					// TODO: bind to user defined categories
 
-				parent.Children.Add(editable);
-				editable.Focus();
-				editable.IsVisible = true;
+					StackLayout parent = todoLayout.Parent as StackLayout;
+					parent.Children.Add(picker);
+
+				}
+				else
+				{
+					ShowHideMetadata();
+				}
 			};
 			categoryLabel.GestureRecognizers.Add(tapRecogCategory);
-
 			// Deadline
 
 			// Priority
